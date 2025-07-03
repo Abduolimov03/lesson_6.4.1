@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biz haqimizda</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f0f0f0, #ffffff);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #222;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 12px;
+            margin-top: 25px;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background-color: #0e76a8;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-home:hover {
+            background-color: #084d6e;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Biz haqimizda</h1>
+    <p>
+        AirPods brendi sifat, dizayn va texnologiyani birlashtirgan zamonaviy eshitish vositalarini yaratadi.
+        Biz foydalanuvchilarimizga eng yuqori darajadagi tovush sifati va qulaylikni taqdim etishni maqsad qilganmiz.
+    </p>
+    <p>
+        AirPods turli modellar bilan har bir mijoz ehtiyojiga mos mahsulotlar taklif qiladi.
+        Simsiz ulanish, uzoq batareya quvvati va shovqinni kamaytirish funksiyasi — bizning asosiy ustunliklarimizdan.
+    </p>
+
+    <img class="about-image" src="https://images.unsplash.com/photo-1600181953745-5fd9c4704a6d" alt="AirPods haqida">
+
+    <a href="{% url 'home' %}" class="back-home">← Bosh sahifaga qaytish</a>
+</div>
+
+</body>
+</html>

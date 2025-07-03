@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yangi Pods Qo‘shish</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f7f8;
+            padding: 40px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        form input[type="text"],
+        form input[type="number"],
+        form textarea,
+        form input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        form button {
+            width: 100%;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #1669c1;
+        }
+    </style>
+    <style>
+.home-btn {
+    display: inline-block;
+    margin: 20px;
+    padding: 12px 24px;
+    background-color: #0e76a8;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.home-btn:hover {
+    background-color: #084d6e;
+    transform: translateY(-2px);
+}
+</style>
+
+</head>
+<body>
+    <div class="form-container">
+<!--        <a href="{% url 'pods' %}" class="home-btn">← Bosh sahifaga qaytish</a>-->
+
+        <h2>Yangi AirPods Qo‘shish</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="brand">Brand:</label>
+            <input type="text" name="brand" id="brand" required>
+
+            <label for="desk">Tavsifi:</label>
+            <textarea name="desk" id="desk" rows="4" required></textarea>
+
+            <label for="image">Rasm (ixtiyoriy):</label>
+            <input type="file" name="image" id="image">
+
+            <label for="price">Narxi (USD):</label>
+            <input type="number" name="price" step="0.01" required>
+
+            <button type="submit">Saqlash</button>
+        </form>
+    </div>
+</body>
+</html>

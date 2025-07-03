@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ pods.brand }} - Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f7f8fc, #e6ecf0);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            display: flex;
+            gap: 40px;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .image-box img {
+            width: 300px;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 12px;
+            background-color: #f9f9f9;
+        }
+
+        .details {
+            flex: 1;
+        }
+
+        .details h1 {
+            margin-top: 0;
+            font-size: 32px;
+            color: #333;
+        }
+
+        .details p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .price {
+            font-size: 22px;
+            color: #1a73e8;
+            margin-top: 20px;
+        }
+
+        .timestamp {
+            font-size: 14px;
+            color: #999;
+            margin-top: 10px;
+        }
+    </style>
+    <style>
+.home-btn {
+    display: inline-block;
+    margin: 20px;
+    padding: 12px 24px;
+    background-color: #0e76a8;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.home-btn:hover {
+    background-color: #084d6e;
+    transform: translateY(-2px);
+}
+</style>
+
+</head>
+<body>
+    <a href="{% url 'pods' %}" class="home-btn">← Bosh sahifaga qaytish</a>
+<div class="container">
+    <div class="image-box">
+        {% if pods.image %}
+            <img src="{{ pods.image.url }}" alt="{{ pods.brand }}">
+        {% else %}
+            <img src="/media/default/pods.png" alt="No Image">
+        {% endif %}
+    </div>
+    <div class="details">
+        <h1>{{ pods.brand }}</h1>
+        <p>{{ pods.desk }}</p>
+        <div class="price">Narxi: ${{ pods.price }}</div>
+        <div class="timestamp">Qo‘shilgan vaqti: {{ pods.created_at|date:"Y-m-d H:i" }}</div>
+    </div>
+</div>
+</body>
+</html>

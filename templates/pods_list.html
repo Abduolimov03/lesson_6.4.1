@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pods List</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 15px;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+    <style>
+.home-btn {
+    display: inline-block;
+    margin: 20px;
+    padding: 12px 24px;
+    background-color: #0e76a8;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.home-btn:hover {
+    background-color: #084d6e;
+    transform: translateY(-2px);
+}
+</style>
+    <style>
+.create-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.create-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+</style>
+
+
+</head>
+<body>
+    <h1 style="text-align: center; color: #333; margin-bottom: 40px;">All AirPods</h1>
+    <a href="{% url 'home' %}" class="home-btn">← Bosh sahifaga qaytish</a>
+    <a href="{% url 'create' %}" class="create-btn">+ Mahsulot qo‘shish</a>
+
+
+    <div class="container">
+        {% for pods in podss %}
+            <div class="card">
+                {% if pods.image %}
+                    <img src="{{ pods.image.url }}" alt="{{ pods.brand }}">
+                {% else %}
+                    <img src="/media/default/pods.png" alt="No image">
+                {% endif %}
+                <h3><a href="{% url 'pods-detail' pods.id %}">{{ pods.brand }}</a> </h3>
+                <p>{{ pods.desk|truncatewords:15 }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
